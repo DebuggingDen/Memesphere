@@ -18,6 +18,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedButton
@@ -53,6 +55,7 @@ import java.io.OutputStream
 @Composable
 fun DetailsScreen(modifier: Modifier = Modifier, name: String?, url: String?) {
     val context = LocalContext.current
+    val scrollState = rememberScrollState()
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -69,7 +72,8 @@ fun DetailsScreen(modifier: Modifier = Modifier, name: String?, url: String?) {
             Column(
                 modifier = modifier
                     .background(Color.White)
-                    .padding(horizontal = 16.dp, vertical = 45.dp),
+                    .padding(horizontal = 16.dp, vertical = 45.dp)
+                    .verticalScroll(scrollState),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
